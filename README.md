@@ -1,3 +1,11 @@
+This is a fork of [ogg](https://github.com/xiph/ogg), packaged for Zig.
+Unnecessary files have been deleted, and the build system has been replaced
+with `build.zig`.
+
+Original README follows:
+
+--------------------------------------------------------------------------------
+
 # Ogg
 
 [![Travis Build Status](https://travis-ci.org/xiph/ogg.svg?branch=master)](https://travis-ci.org/xiph/ogg)
