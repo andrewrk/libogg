@@ -17,6 +17,6 @@ pub fn build(b: *std.Build) void {
         "-std=c99",
     });
     lib.linkLibC();
-    lib.install();
     lib.installHeadersDirectory("include/ogg", "ogg");
+    b.installArtifact(lib);
 }
