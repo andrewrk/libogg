@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    lib.addIncludePath("include");
+    lib.addIncludePath(.{ .path = "include" });
     lib.addCSourceFiles(&.{
         "src/bitwise.c",
         "src/framing.c",
