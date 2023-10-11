@@ -10,11 +10,14 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     lib.addIncludePath(.{ .path = "include" });
-    lib.addCSourceFiles(&.{
-        "src/bitwise.c",
-        "src/framing.c",
-    }, &.{
-        "-std=c99",
+    lib.addCSourceFiles(.{
+        .files = &.{
+            "src/bitwise.c",
+            "src/framing.c",
+        },
+        .flags = &.{
+            "-std=c99",
+        },
     });
     lib.linkLibC();
     lib.installHeadersDirectory("include/ogg", "ogg");
