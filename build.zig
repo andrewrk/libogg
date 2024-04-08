@@ -20,6 +20,6 @@ pub fn build(b: *std.Build) void {
         },
     });
     lib.linkLibC();
-    lib.installHeadersDirectory("include/ogg", "ogg");
+    lib.installHeadersDirectory(.{ .path = "include/ogg" }, "ogg", .{});
     b.installArtifact(lib);
 }
