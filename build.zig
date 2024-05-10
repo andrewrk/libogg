@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
-    lib.addIncludePath(.{ .path = "include" });
+    lib.addIncludePath(b.path("include"));
     lib.addCSourceFiles(.{
         .files = &.{
             "src/bitwise.c",
@@ -20,6 +20,6 @@ pub fn build(b: *std.Build) void {
         },
     });
     lib.linkLibC();
-    lib.installHeadersDirectory(.{ .path = "include/ogg" }, "ogg", .{});
+    lib.installHeadersDirectory(b.path("include/ogg"), "ogg", .{});
     b.installArtifact(lib);
 }
