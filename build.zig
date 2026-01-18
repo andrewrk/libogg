@@ -9,11 +9,12 @@ pub fn build(b: *std.Build) void {
         .root_module = b.createModule(.{
             .target = target,
             .optimize = optimize,
+            .link_libc = true,
         }),
         .linkage = .static,
     });
-    lib.addIncludePath(b.path("include"));
-    lib.addCSourceFiles(.{
+    lib.root_module.addIncludePath(b.path("include"));
+    lib.root_module.addCSourceFiles(.{
         .files = &.{
             "src/bitwise.c",
             "src/framing.c",
@@ -22,7 +23,6 @@ pub fn build(b: *std.Build) void {
             "-std=c99",
         },
     });
-    lib.linkLibC();
     lib.installHeadersDirectory(b.path("include/ogg"), "ogg", .{});
     b.installArtifact(lib);
 }
