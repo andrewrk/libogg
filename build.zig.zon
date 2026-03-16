@@ -7,6 +7,7 @@
         "COPYING",
         "README.md",
         "build.zig",
+        "build.zig.zon",
         "include",
         "src",
     },
